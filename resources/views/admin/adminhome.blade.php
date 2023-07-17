@@ -1,3 +1,3 @@
-<x-app-layout>
+@extends('admin.layout.master')
+@section('title','Home')
 
-</x-app-layout>

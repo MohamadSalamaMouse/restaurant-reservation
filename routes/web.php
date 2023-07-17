@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('users',[AdminController::class,'index'])->name('users');
+Route::post('user/destroy/{id}',[AdminController::class,'destroy'])->name('user.destroy');
