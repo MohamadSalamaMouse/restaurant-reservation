@@ -29,3 +29,5 @@ Route::middleware([
 });
 Route::get('users',[AdminController::class,'index'])->name('users');
 Route::post('user/destroy/{id}',[AdminController::class,'destroy'])->name('user.destroy');
+Route::get('FoodMenu',[AdminController::class,'FoodMenu'])->name('FoodMenu');
+Route::post('food/store',[AdminController::class,'food_store'])->name('food.store');
