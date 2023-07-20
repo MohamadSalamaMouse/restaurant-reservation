@@ -11,7 +11,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Food      @if(Session::has('msg'))
+                        <h4 class="card-title">Food Edit     @if(Session::has('msg'))
                                 <div class="alert alert-success" role="alert">
                                     {{Session::get('msg')}}
                                 </div>
