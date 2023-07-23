@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,5 +23,25 @@ class HomeController extends Controller
             return view('home',compact('foodData'));
 
         }
+    }
+    public function reservationStore(Request $request){
+$request->validate([
+    'name' => 'required',
+    'email' => 'required',
+    'phone' => 'required',
+]);
+
+     $reservation =new Reservation();
+         $reservation->name=$request->name;
+          $reservation-> email=$request->email;
+          $reservation-> phone=$request->phone;
+           $reservation->message=$request->message;
+            $reservation->date=$request->date;
+           $reservation->time=$request->time;
+          $reservation->NumberOfGuests=$request->NumberOfGuests;
+          $reservation->save();
+         return redirect()->back()->with('msg','reservation add successful');
+
+
     }
 }

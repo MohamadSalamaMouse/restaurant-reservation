@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -76,6 +77,11 @@ class AdminController extends Controller
         }
         $food->save();
         return redirect()->back()->with('msg','food edit successful');
+
+    }
+    public function reservationShow(){
+        $reservations=Reservation::all();
+        return view('admin.Reservation',compact('reservations'));
 
     }
 }

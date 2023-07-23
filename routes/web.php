@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/",[HomeController::class,'index']);
 Route::get('redirects',[HomeController::class,'redirects']);
+Route::post('reservation/store', [HomeController::class, 'reservationStore'])->name('reservation.store');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -43,4 +44,5 @@ Route::middleware([
     Route::post('food/destroy/{id}', [AdminController::class, 'food_destroy'])->name('FoodMenu.destroy');
     Route::get('Food/edit/{id}', [AdminController::class, 'Food_edit'])->name('FoodMenu.edit');
 Route::post('food/update/{id}', [AdminController::class, 'Food_update'])->name('food.update');
+Route::get('Reservation/show', [AdminController::class, 'reservationShow'])->name('reservation.show');
 });
